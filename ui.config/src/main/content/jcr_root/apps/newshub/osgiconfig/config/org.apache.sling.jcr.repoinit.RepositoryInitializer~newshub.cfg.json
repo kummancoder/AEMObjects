@@ -1,0 +1,28 @@
+{
+    "scripts": [
+
+        "create path (cq:Page) /content/newshub",
+        "create path (cq:PageContent) /content/newshub/jcr:content",
+
+        "create path (cq:Page) /content/newshub/en",
+        "create path (cq:PageContent) /content/newshub/en/jcr:content",
+
+        "create path (cq:Page) /content/newshub/en/news",
+        "create path (cq:PageContent) /content/newshub/en/news/jcr:content",
+
+        "create path (sling:OrderedFolder) /content/newshub/en/archive",
+
+        "create path (sling:Folder) /content/dam/newshub",
+        "create path (nt:unstructured) /content/dam/newshub/jcr:content",
+
+        "set properties on /content/dam/newshub/jcr:content\n  set cq:conf{String} to /conf/newshub\n  set jcr:title{String} to \"News Hub Assets\"\nend",
+
+        "create service user newshub-content-reader",
+        "create service user newshub-content-writer",
+
+        "set ACL for newshub-content-reader\n  allow jcr:read on /content/newshub/en/news\nend",
+
+        "set ACL for newshub-content-writer\n  allow jcr:read on /content/newshub/en\n  allow jcr:write on /content/newshub/en\nend"
+
+    ]
+}
