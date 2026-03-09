@@ -123,9 +123,12 @@ public class ArticleArchiveScheduler implements Runnable {
         map.put("path", config.news_root());
         map.put("type", "cq:Page");
 
-        map.put("daterange.property", "jcr:content/publishDate");
-        map.put("daterange.upperBound", limitDate.toInstant().toString());
-        map.put("daterange.upperOperation", "<");
+        map.put("1_property", "jcr:content/cq:lastReplicated");
+        map.put("1_property.operation", "exists");
+
+        map.put("2_daterange.property", "jcr:content/cq:lastReplicated");
+        map.put("2_daterange.upperBound", limitDate.toInstant().toString());
+        map.put("2_daterange.upperOperation", "<");
 
         map.put("p.limit", "-1");
 
