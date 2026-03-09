@@ -1,1 +1,2 @@
 fghj
+next line just to ensure merge works
